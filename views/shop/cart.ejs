@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../includes/header.ejs') %>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+    <ul>
+        <% cart.forEach((pro)=>{ %>
+        <li>
+            <h2><%= pro.productData.title %></h2>
+        </li>
+        <li>
+            <h2><%= pro.qty %></h2>
+        </li>
+        <form action="/delete-cart-item" method="POST">
+            <input type="hidden" name="id" value="<%= pro.productData.id %>">
+            <button type="submit" class="btn">Delete</button>
+        </form>
+        <%});%>
+    </ul>
+</body>
+
+</html>
